@@ -3,6 +3,8 @@
 import pandas as pd
 import numpy as np
 # !pip install xlrd 
+NUM_CLUSTERS = 10
+# %%
 df = pd.read_excel("CORE_DATA.xlsx")
 dfs = np.array_split(df, 5)
 for idx in range(len(dfs)):
@@ -36,13 +38,13 @@ scaler.fit(mat)
 mat_sc = scaler.transform(mat)
 
 # %% Basic K means
-kmeans = KMeans(n_clusters=10)
+kmeans = KMeans(n_clusters=NUM_CLUSTERS)
 kmeans.fit(mat)
 labels = kmeans.labels_
 results_km = pd.DataFrame([df.index,labels]).T
 
 #%% Hierarchical
-hierarchical = AgglomerativeClustering(n_clusters=10, affinity='euclidean', compute_full_tree='auto', linkage='ward', distance_threshold=None).fit(mat)
+hierarchical = AgglomerativeClustering(n_clusters=NUM_CLUSTERS, affinity='euclidean', compute_full_tree='auto', linkage='ward', distance_threshold=None).fit(mat)
 hierarchical
 labels = hierarchical.labels_
 results_hc = pd.DataFrame([df.index,labels]).T
