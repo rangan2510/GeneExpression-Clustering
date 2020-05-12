@@ -54,3 +54,6 @@ df['gene_name'] = pd.Series(genes, index=df.index)
 df['k_means_cluster_id'] = results_km.loc[:,1]
 df['hierarchical_cluster_id'] = results_hc.loc[:,1]
 print(df)
+df.to_csv('results.csv')
+
+# %%
