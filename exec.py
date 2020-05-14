@@ -1,5 +1,6 @@
 #%% OPEN USING VISUAL STUDIO CODE
-# Splitting source xlsx file to smaller chunks for as GitHub repo has file size limit.
+# Splitting source xlsx file to smaller chunks for as GitHub repo 
+# has file size limit.
 import pandas as pd
 import numpy as np
 # !pip install xlrd 
@@ -55,5 +56,3 @@ df['k_means_cluster_id'] = results_km.loc[:,1]
 df['hierarchical_cluster_id'] = results_hc.loc[:,1]
 print(df)
 df.to_csv('results.csv')
-
-# %%
